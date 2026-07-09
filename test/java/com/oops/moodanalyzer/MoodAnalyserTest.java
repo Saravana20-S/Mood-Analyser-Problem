@@ -25,4 +25,24 @@ public class MoodAnalyserTest {
         // Assert
         Assertions.assertEquals("Sad", actualMood);
     }
+
+
+
+    /**
+     * TC 1.2
+     * Given "I am in Any Mood"
+     * Should return "Happy".
+     */
+    @Test
+    public void givenAnyMoodMessage_ShouldReturnHappy() {
+
+        // Arrange
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+
+        // Act
+        String actualMood = moodAnalyser.analyseMood("I am in Any Mood");
+
+        // Assert
+        Assertions.assertEquals("Happy", actualMood);
+    }
 }
