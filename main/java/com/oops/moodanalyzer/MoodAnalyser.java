@@ -26,18 +26,27 @@ public class MoodAnalyser {
     }
 
     /**
-     * Analyzes the stored message.
+     * Analyzes the stored mood message.
      *
-     * @return "Sad" if the message contains "Sad", otherwise "Happy"
+     * @return "Sad" if the message contains "Sad",
+     *         otherwise "Happy".
      */
     public String analyseMood() {
 
-        // Check for Sad mood
-        if (message.contains("Sad")) {
-            return "Sad";
-        }
+        try {
 
-        // Default mood is Happy
-        return "Happy";
+            // Check for Sad mood
+            if (message.contains("Sad")) {
+                return "Sad";
+            }
+
+            // Default mood
+            return "Happy";
+
+        } catch (NullPointerException e) {
+
+            // Handle null message by returning Happy
+            return "Happy";
+        }
     }
 }
