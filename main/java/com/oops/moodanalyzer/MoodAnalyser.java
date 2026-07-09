@@ -35,18 +35,18 @@ public class MoodAnalyser {
 
         try {
 
-            // Check for Sad mood
+            // Check if the message contains the word "Sad"
             if (message.contains("Sad")) {
                 return "Sad";
             }
 
-            // Default mood
+            // Return Happy for all other messages
             return "Happy";
 
-        } catch (NullPointerException e) {
+        } catch (NullPointerException exception) {
 
-            // Handle null message by returning Happy
+            // Handle null message and return Happy
             return "Happy";
         }
     }
-}
+    }

@@ -79,10 +79,9 @@ public class MoodAnalyserTest {
         // Assert
         Assertions.assertEquals("Happy", actualMood);
     }
-
-
+    
     /**
-     * TC 2.1
+     * TC2.1
      * Given a null mood message,
      * should return "Happy".
      */
