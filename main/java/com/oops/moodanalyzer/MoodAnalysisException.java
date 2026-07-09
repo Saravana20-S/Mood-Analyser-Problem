@@ -3,10 +3,10 @@ package com.oops.moodanalyzer;
 /**
  * Custom exception class for Mood Analyzer.
  */
-public class MoodAnalyserException extends Exception {
+public class MoodAnalysisException extends Exception {
 
     /**
-     * Enum representing different types of mood analysis errors.
+     * Represents different types of mood analysis errors.
      */
     public enum ExceptionType {
         ENTERED_NULL,
@@ -16,12 +16,12 @@ public class MoodAnalyserException extends Exception {
     private final ExceptionType type;
 
     /**
-     * Creates a MoodAnalyserException.
+     * Creates a MoodAnalysisException with the given type and message.
      *
      * @param type    Type of exception.
      * @param message Exception message.
      */
-    public MoodAnalyserException(ExceptionType type, String message) {
+    public MoodAnalysisException(ExceptionType type, String message) {
         super(message);
         this.type = type;
     }

@@ -14,7 +14,7 @@ public class MoodAnalyserMain {
 
             System.out.println(moodAnalyser.analyseMood());
 
-        } catch (MoodAnalyserException exception) {
+        } catch (MoodAnalysisException exception) {
 
             System.out.println(exception.getMessage());
         }
