@@ -17,16 +17,14 @@ public class MoodAnalyserTest {
     public void givenSadMoodMessage_ShouldReturnSad() {
 
         // Arrange
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad Mood");
 
         // Act
-        String actualMood = moodAnalyser.analyseMood("I am in Sad Mood");
+        String actualMood = moodAnalyser.analyseMood();
 
         // Assert
         Assertions.assertEquals("Sad", actualMood);
     }
-
-
 
     /**
      * TC 1.2
@@ -37,10 +35,10 @@ public class MoodAnalyserTest {
     public void givenAnyMoodMessage_ShouldReturnHappy() {
 
         // Arrange
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Any Mood");
 
         // Act
-        String actualMood = moodAnalyser.analyseMood("I am in Any Mood");
+        String actualMood = moodAnalyser.analyseMood();
 
         // Assert
         Assertions.assertEquals("Happy", actualMood);

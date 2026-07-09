@@ -1,13 +1,16 @@
 package com.oops.moodanalyzer;
 
+/**
+ * Driver class for Mood Analyzer.
+ */
 public class MoodAnalyserMain {
 
     public static void main(String[] args) {
 
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        // Create MoodAnalyser object using parameterized constructor
+        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad Mood");
 
-        String mood = moodAnalyser.analyseMood("I am in Sad Mood");
-
-        System.out.println("Mood : " + mood);
+        // Analyze and display the mood
+        System.out.println("Mood : " + moodAnalyser.analyseMood());
     }
 }
