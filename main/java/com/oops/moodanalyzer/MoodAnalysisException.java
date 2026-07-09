@@ -16,7 +16,7 @@ public class MoodAnalysisException extends Exception {
     private final ExceptionType type;
 
     /**
-     * Creates a MoodAnalysisException with the given type and message.
+     * Creates a MoodAnalysisException.
      *
      * @param type    Type of exception.
      * @param message Exception message.
@@ -29,7 +29,7 @@ public class MoodAnalysisException extends Exception {
     /**
      * Returns the exception type.
      *
-     * @return exception type.
+     * @return exception type
      */
     public ExceptionType getType() {
         return type;

@@ -25,17 +25,25 @@ public class MoodAnalyser {
         this.message = message;
     }
 
+
     /**
      * Analyzes the stored mood message.
      *
-     * @return "Sad" if the message contains "Sad", otherwise "Happy".
-     * @throws MoodAnalysisException if the message is null.
+     * @return "Sad" if the message contains "Sad", otherwise "Happy"
+     * @throws MoodAnalysisException if the message is null or empty
      */
     public String analyseMood() throws MoodAnalysisException {
 
         try {
 
-            // If message contains "Sad", return Sad
+            // Check for empty message
+            if (message.length() == 0) {
+                throw new MoodAnalysisException(
+                        MoodAnalysisException.ExceptionType.ENTERED_EMPTY,
+                        "Mood should not be empty");
+            }
+
+            // Check for Sad mood
             if (message.contains("Sad")) {
                 return "Sad";
             }
@@ -45,7 +53,7 @@ public class MoodAnalyser {
 
         } catch (NullPointerException exception) {
 
-            // Throw custom exception for null mood
+            // Throw custom exception for null message
             throw new MoodAnalysisException(
                     MoodAnalysisException.ExceptionType.ENTERED_NULL,
                     "Mood should not be null");

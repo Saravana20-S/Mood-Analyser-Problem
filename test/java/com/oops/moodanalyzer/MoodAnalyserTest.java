@@ -121,4 +121,30 @@ public class MoodAnalyserTest {
     }
 
 
+    /**
+     * TC3.2
+     * Given an empty mood,
+     * should throw MoodAnalysisException
+     * indicating empty mood.
+     */
+    @Test
+    public void givenEmptyMood_ShouldThrowMoodAnalysisException() {
+
+        // Arrange
+        MoodAnalyser moodAnalyser = new MoodAnalyser("");
+
+        // Act & Assert
+        MoodAnalysisException exception = Assertions.assertThrows(
+                MoodAnalysisException.class,
+                moodAnalyser::analyseMood);
+
+        Assertions.assertEquals(
+                MoodAnalysisException.ExceptionType.ENTERED_EMPTY,
+                exception.getType());
+
+        Assertions.assertEquals(
+                "Mood should not be empty",
+                exception.getMessage());
+    }
+
 }
