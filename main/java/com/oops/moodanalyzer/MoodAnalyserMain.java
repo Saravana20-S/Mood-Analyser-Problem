@@ -7,10 +7,16 @@ public class MoodAnalyserMain {
 
     public static void main(String[] args) {
 
-        // Create MoodAnalyser object using parameterized constructor
-        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad Mood");
+        try {
 
-        // Analyze and display the mood
-        System.out.println("Mood : " + moodAnalyser.analyseMood());
+            MoodAnalyser moodAnalyser =
+                    new MoodAnalyser("I am in Happy Mood");
+
+            System.out.println(moodAnalyser.analyseMood());
+
+        } catch (MoodAnalyserException exception) {
+
+            System.out.println(exception.getMessage());
+        }
     }
 }

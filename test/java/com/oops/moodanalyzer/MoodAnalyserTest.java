@@ -14,7 +14,7 @@ public class MoodAnalyserTest {
      * Should return "Sad".
      */
     @Test
-    public void givenSadMoodMessage_ShouldReturnSad() {
+    public void givenSadMoodMessage_ShouldReturnSad() throws MoodAnalyserException {
 
         // Arrange
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad Mood");
@@ -32,7 +32,7 @@ public class MoodAnalyserTest {
      * Should return "Happy".
      */
     @Test
-    public void givenAnyMoodMessage_ShouldReturnHappy() {
+    public void givenAnyMoodMessage_ShouldReturnHappy() throws MoodAnalyserException {
 
         // Arrange
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Any Mood");
@@ -50,7 +50,7 @@ public class MoodAnalyserTest {
      * analyseMood() should return "Sad".
      */
     @Test
-    public void givenSadMoodMessage_WhenPassedInConstructor_ShouldReturnSad() {
+    public void givenSadMoodMessage_WhenPassedInConstructor_ShouldReturnSad() throws MoodAnalyserException {
 
         // Arrange
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad Mood");
@@ -68,7 +68,7 @@ public class MoodAnalyserTest {
      * analyseMood() should return "Happy".
      */
     @Test
-    public void givenHappyMoodMessage_WhenPassedInConstructor_ShouldReturnHappy() {
+    public void givenHappyMoodMessage_WhenPassedInConstructor_ShouldReturnHappy() throws MoodAnalyserException {
 
         // Arrange
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Happy Mood");
@@ -86,7 +86,7 @@ public class MoodAnalyserTest {
      * should return "Happy".
      */
     @Test
-    public void givenNullMoodMessage_ShouldReturnHappy() {
+    public void givenNullMoodMessage_ShouldReturnHappy() throws MoodAnalyserException {
 
         // Arrange
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
@@ -96,5 +96,45 @@ public class MoodAnalyserTest {
 
         // Assert
         Assertions.assertEquals("Happy", actualMood);
+    }
+
+
+
+    /**
+     * TC3.1
+     * Given a null mood,
+     * should throw MoodAnalyserException.
+     */
+    @Test
+    public void givenNullMood_ShouldThrowMoodAnalyserException() {
+
+        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+
+        MoodAnalyserException exception = Assertions.assertThrows(
+                MoodAnalyserException.class,
+                moodAnalyser::analyseMood);
+
+        Assertions.assertEquals(
+                MoodAnalyserException.ExceptionType.ENTERED_NULL,
+                exception.getType());
+    }
+
+    /**
+     * TC3.2
+     * Given an empty mood,
+     * should throw MoodAnalyserException.
+     */
+    @Test
+    public void givenEmptyMood_ShouldThrowMoodAnalyserException() {
+
+        MoodAnalyser moodAnalyser = new MoodAnalyser("");
+
+        MoodAnalyserException exception = Assertions.assertThrows(
+                MoodAnalyserException.class,
+                moodAnalyser::analyseMood);
+
+        Assertions.assertEquals(
+                MoodAnalyserException.ExceptionType.ENTERED_EMPTY,
+                exception.getType());
     }
 }
